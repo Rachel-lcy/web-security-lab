@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Vulnerable App
+    style
+      body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+      h1 { color: #333; }
+      p { color: #555; }
+      a { color: #007bff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px; margin: 20px auto; }
+      .message { color: green; font-weight: bold; margin-bottom: 15px; }
+  body
+    .container
+      h1 Vulnerable Banking App
+      p.message #{message}
+      p You are currently "logged in" as a user.
+      p This application allows you to perform actions like transferring money.
+      p
+        a(href='/transfer') Go to Transfer Money Page
+      p
+        small (Remember to simulate login by visiting /login first if you restart the server)

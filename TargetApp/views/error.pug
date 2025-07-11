@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Error
+    style
+      body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+      .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px; margin: 20px auto; }
+      h1 { color: #cc0000; }
+      p { color: #555; }
+      a { color: #007bff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+  body
+    .container
+      h1 Error
+      p #{message}
+      p
+        a(href='/') Back to Home

